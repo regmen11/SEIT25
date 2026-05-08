@@ -11,7 +11,7 @@ public class Page {
 
   public Page(ChromeDriver driver) {
     this.driver = driver;
-    PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(5)), this);
+    PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(6)), this);
     waitForPageLoad();
   }
 
