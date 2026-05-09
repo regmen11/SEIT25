@@ -26,7 +26,7 @@ public class HomePage extends Page {
     }
 
     public void navigateToHomePage(String url) {
-        driver.get("https://the-internet.herokuapp.com/");
+        driver.get(url);
     }
 
     public String getTitleHeader() {
