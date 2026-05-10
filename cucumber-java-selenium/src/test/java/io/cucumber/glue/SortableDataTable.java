@@ -11,8 +11,6 @@ import org.junit.Assert;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 public class SortableDataTable extends Context {
 
     public SortableDataTable(Manager manager) {
