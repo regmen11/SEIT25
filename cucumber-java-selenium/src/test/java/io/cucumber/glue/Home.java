@@ -24,7 +24,7 @@ public class Home extends Context {
     homePage.navigateToHomePage(url);
   }
 
-  @And("^header title is '(.+)'$")
+  @When("^header title is '(.+)'$")
   public void getHeader(String expectedHeader) {
     Assert.assertEquals("Header validation", expectedHeader, homePage.getTitleHeader());
   }
@@ -51,7 +51,7 @@ public class Home extends Context {
 
   @When("the {string} example link is displayed")
   public void validateExampleName(String exampleName) {
-    Assert.assertTrue("Presence of Example link validation", homePage.validateExampleName(exampleName));
+    Assert.assertTrue("Availability of Example link validation", homePage.validateExampleName(exampleName));
   }
 
   @And("credentials username {string} and password {string} are entered for {string}")

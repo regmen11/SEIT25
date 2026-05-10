@@ -4,7 +4,7 @@ Feature: The Internet
   @TEST_TI_0001
   Scenario: Homepage has a list of links to Expected examples
     Given the page under test is 'https://the-internet.herokuapp.com'
-    And header title is 'Welcome to the-internet'
+    When header title is 'Welcome to the-internet'
     Then the displayed list of Available Examples should match the following:
       | A/B Testing                                  |
       | Add/Remove Elements                          |

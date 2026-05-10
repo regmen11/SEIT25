@@ -16,6 +16,6 @@ public class BasicAuth extends Context {
 
     @Then("the message {string} is displayed")
     public void validateMessage(String expectedMessage) {
-        Assert.assertEquals("Count validation", expectedMessage, basicAuthPage.getMessage());
+        Assert.assertEquals("Message validation", expectedMessage, basicAuthPage.getMessage());
     }
 }
