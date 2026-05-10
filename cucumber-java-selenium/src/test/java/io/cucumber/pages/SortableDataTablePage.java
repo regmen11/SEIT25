@@ -32,8 +32,9 @@ public class SortableDataTablePage extends Page {
         String rowLoc = String.format("//table[@id='table1']/tbody/tr[%d]", rowNumber);
         List<WebElement> rowCells = driver.findElements(By.xpath(rowLoc + "/td"));
 
+        //check if cells has value
         if (rowCells.isEmpty()) {
-            throw new RuntimeException("Row " + rowNumber + " is not displayed in table.");
+            return rowData; // test file will handle assertion if empty
         }
 
         //iterate through row values

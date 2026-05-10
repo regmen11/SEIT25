@@ -11,6 +11,8 @@ import org.junit.Assert;
 import java.util.List;
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 public class SortableDataTable extends Context {
 
     public SortableDataTable(Manager manager) {
@@ -32,6 +34,7 @@ public class SortableDataTable extends Context {
 
         for (int i = 0; i < expectedData.size(); i++) {
             actualRowData = sortableDataTablePage.getTableRow(i+1);
+            Assert.assertFalse("Actual row data validation", actualRowData.isEmpty());
             expectedRowData = expectedData.get(i);
 
             // Row values validation
