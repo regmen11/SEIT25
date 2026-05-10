@@ -52,6 +52,11 @@ public class HomePage extends Page {
         return driver.findElement(By.xpath(exampleLoc)).isDisplayed();
     }
 
+    public void clickExampleName(String exampleName) {
+        String exampleLoc = "//a[contains(text(),'" + exampleName + "')]";
+        driver.findElement(By.xpath(exampleLoc)).click();
+    }
+
     // Since Basic Auth is a browser prompt, navigate using the URL format
     // Unable to inspect browser prompt
     public void loginWithCredentials(String username, String password, String exampleName) {

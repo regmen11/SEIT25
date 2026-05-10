@@ -59,6 +59,19 @@ Feature: The Internet
     And credentials username "admin" and password "admin" are entered for "basic_auth"
     Then the message "Congratulations! You must have the proper credentials." is displayed
 
+  @TEST_TI_0003
+  Scenario: Sortable Data Tables - Example 1 displays the expected 4 results
+    Given the page under test is 'https://the-internet.herokuapp.com'
+    When the "Sortable Data Tables" example link is displayed
+    And the "Sortable Data Tables" example link is clicked
+    And the header title is 'Data Tables'
+    Then the Example table displays the following results:
+      | Last Name | First Name | Email                  | Due     | Web Site                 |
+      | Smith     | John       | jsmith@gmail.com       | $50.00  | http://www.jsmith.com    |
+      | Bach      | Frank      | fbach@yahoo.com        | $51.00  | http://www.frank.com     |
+      | Doe       | Jason      | jdoe@hotmail.com       | $100.00 | http://www.jdoe.com      |
+      | Conway    | Tim        | tconway@earthlink.net  | $50.00  | http://www.timconway.com |
+
 
 #  @TEST_TI_0001
 #  Scenario: Basic Auth allows validated access

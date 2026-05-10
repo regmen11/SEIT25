@@ -26,20 +26,22 @@ public class Home extends Context {
 
   @And("^header title is '(.+)'$")
   public void getHeader(String expectedHeader) {
-    homePage.getTitleHeader();
     Assert.assertEquals("Header validation", expectedHeader, homePage.getTitleHeader());
   }
 
   @Then("^the displayed list of Available Examples should match the following:")
   public void validateListOfExample(List<String> expectedList) {
-
+    // Note: the list on GIT README does not match the actual list in the site.
+    // I followed the site's actual list
     String expectedStr = "";
     String actualStr = "";
 
     List<String> actualList = homePage.getAvailableExamples();
 
+    // assert count of list
     Assert.assertEquals("Count validation", expectedList.size(), actualList.size());
 
+    // assert values for expected and actual
     for (int i = 0; i < expectedList.size(); i++) {
       expectedStr = expectedList.get(i);
       actualStr = actualList.get(i);
@@ -55,6 +57,11 @@ public class Home extends Context {
   @And("credentials username {string} and password {string} are entered for {string}")
   public void enterCredentials(String username, String password, String exampleName) {
     homePage.loginWithCredentials(username, password, exampleName);
+  }
+
+  @And("the {string} example link is clicked")
+  public void clickExampleLink(String exampleName) {
+    homePage.clickExampleName(exampleName);
   }
 
 }
