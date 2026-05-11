@@ -13,11 +13,12 @@ import java.util.List;
 
 public class Home extends Context {
 
+  private final HomePage homePage;
+
   public Home(Manager manager) {
     super(manager);
+    this.homePage = new HomePage(manager.getDriver());
   }
-
-  private final HomePage homePage = new HomePage(this.getDriver());
 
   @Given("^the page under test is '(.+)'$")
   public void navToPage(String url) {

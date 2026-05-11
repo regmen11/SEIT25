@@ -8,11 +8,12 @@ import org.junit.Assert;
 
 public class BasicAuth extends Context {
 
+    private final BasicAuthPage basicAuthPage;
+
     public BasicAuth(Manager manager) {
         super(manager);
+        this.basicAuthPage = new BasicAuthPage(manager.getDriver());
     }
-
-    private final BasicAuthPage basicAuthPage = new BasicAuthPage(this.getDriver());
 
     @Then("the message {string} is displayed")
     public void validateMessage(String expectedMessage) {

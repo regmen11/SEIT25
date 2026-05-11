@@ -13,11 +13,12 @@ import java.util.Map;
 
 public class SortableDataTable extends Context {
 
+    private final SortableDataTablePage sortableDataTablePage;
+
     public SortableDataTable(Manager manager) {
         super(manager);
+        this.sortableDataTablePage = new SortableDataTablePage(manager.getDriver());
     }
-
-    private final SortableDataTablePage sortableDataTablePage = new SortableDataTablePage(this.getDriver());
 
     @And("^the header title is '(.+)'$")
     public void getHeader(String expectedHeader) {
@@ -36,11 +37,11 @@ public class SortableDataTable extends Context {
             expectedRowData = expectedData.get(i);
 
             // Row values validation
-            Assert.assertEquals("Last Name validation", actualRowData.get("Last Name"), expectedRowData.get("Last Name"));
-            Assert.assertEquals("First Name validation", actualRowData.get("First Name"), expectedRowData.get("First Name"));
-            Assert.assertEquals("Email validation", actualRowData.get("Email"), expectedRowData.get("Email"));
-            Assert.assertEquals("Due validation", actualRowData.get("Due"), expectedRowData.get("Due"));
-            Assert.assertEquals("Web Site validation", actualRowData.get("Web Site"), expectedRowData.get("Web Site"));
+            Assert.assertEquals("Last Name validation", expectedRowData.get("Last Name"), actualRowData.get("Last Name"));
+            Assert.assertEquals("First Name validation", expectedRowData.get("First Name"), actualRowData.get("First Name"));
+            Assert.assertEquals("Email validation", expectedRowData.get("Email"), actualRowData.get("Email"));
+            Assert.assertEquals("Due validation", expectedRowData.get("Due"), actualRowData.get("Due"));
+            Assert.assertEquals("Web Site validation", expectedRowData.get("Web Site"), actualRowData.get("Web Site"));
         }
     }
 }
